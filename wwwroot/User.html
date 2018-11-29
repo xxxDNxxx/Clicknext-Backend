@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+
+    <title>User Management</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row"><h1>User Management</h1></div>
+      <div class="row">
+        <button
+          type="button"
+          class="btn btn-success"
+          data-toggle="modal"
+          data-target="#exampleModalCenter"
+          id="AddUser"
+        >
+          เพิ่ม
+        </button>
+      </div>
+      <div class="row">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>Email</th>
+              <th>Tel</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModalCenter"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">
+              Modal title
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <input type="hidden" id="action" value="" />
+              <div class="form-group row">
+                <label for="UserId" class="col-sm-2 col-form-label"
+                  >UserId</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="UserId"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="FirstName" class="col-sm-2 col-form-label"
+                  >FirstName</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="FirstName"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="LastName" class="col-sm-2 col-form-label"
+                  >LastName</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="LastName"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="UserName" class="col-sm-2 col-form-label"
+                  >UserName</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="UserName"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="Password" class="col-sm-2 col-form-label"
+                  >Password</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Password"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="Email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="Email" value="" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="Tel" class="col-sm-2 col-form-label">Tel</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="Tel" value="" />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+              id="btnCencel"
+            >
+              ยกเลิก
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="btnSave"
+              data-dismiss="modal"
+            >
+              บันทึก
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      var UserData;
+      $(document).ready(function() {
+        LoadData();
+        $("#AddUser").click(function() {
+          $("#action").val("Add");
+        });
+        $("#btnSave").click(function() {
+          if ($("#action").val() === "Add") {
+            AddUser();
+          } else {
+            EditUser();
+          }
+        });
+      });
+      function LoadData() {
+        $("table > tbody > tr").remove();
+        $.ajax({
+          url: "/api/User/GetAllUser",
+          type: "GET",
+          success: function(data) {
+            UserData = data;
+            var _element = "";
+            for (var i = 0; i < data.length; i++) {
+              _element += "<tr>";
+              _element += "<td>" + data[i].firstName + "</td>";
+              _element += "<td>" + data[i].lastName + "</td>";
+              _element += "<td>" + data[i].email + "</td>";
+              _element += "<td>" + data[i].tel + "</td>";
+              _element += "<td>";
+              _element +=
+                '<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalCenter" onClick="btnEditUser(' +
+                data[i].userId +
+                ')">แก้ไข</button>';
+              _element +=
+                '<button type="button" class="btn btn-danger" onClick="DeleteUser(' +
+                data[i].userId +
+                ')">ลบ</button>';
+              _element += "</td>";
+              _element += "</tr>";
+            }
+            $("table > tbody").append(_element);
+          }
+        });
+      }
+      function AddUser() {
+        $.ajax({
+          url: "/api/User/AddUser",
+          type: "POST",
+          data: {
+            UserId: $("#UserId").val(),
+            FirstName: $("#FirstName").val(),
+            LastName: $("#LastName").val(),
+            UserName: $("#UserName").val(),
+            Password: $("#Password").val(),
+            Email: $("#Email").val(),
+            Tel: $("#Tel").val()
+          },
+          success: function() {
+            LoadData();
+            ClearValue();
+          }
+        });
+      }
+      function btnEditUser(UserId) {
+        $("#action").val("Edit");
+        var _user = UserData.filter(function(user) {
+          return user.userId === UserId;
+        })[0];
+        $("#UserId").val(_user.userId);
+        $("#FirstName").val(_user.firstName);
+        $("#LastName").val(_user.lastName);
+        $("#UserName").val(_user.userName);
+        $("#Password").val(_user.password);
+        $("#Email").val(_user.email);
+        $("#Tel").val(_user.tel);
+      }
+      function EditUser() {
+        $.ajax({
+          url: "/api/User/EditUser",
+          type: "POST",
+          data: {
+            UserId: $("#UserId").val(),
+            FirstName: $("#FirstName").val(),
+            LastName: $("#LastName").val(),
+            UserName: $("#UserName").val(),
+            Password: $("#Password").val(),
+            Email: $("#Email").val(),
+            Tel: $("#Tel").val()
+          },
+          success: function() {
+            LoadData();
+            ClearValue();
+          }
+        });
+      }
+      function DeleteUser(UserId){
+          $.ajax({
+              url:'/api/User/DeleteUser',
+              type:'POST',
+              data:{
+                  UserId:UserId
+              },
+              success:function(){
+                LoadData();
+              }
+          })
+      }
+      function ClearValue() {
+        $("#UserId").val("");
+        $("#FirstName").val("");
+        $("#LastName").val("");
+        $("#UserName").val("");
+        $("#Password").val("");
+        $("#Email").val("");
+        $("#Tel").val("");
+      }
+    </script>
+  </body>
+</html>
